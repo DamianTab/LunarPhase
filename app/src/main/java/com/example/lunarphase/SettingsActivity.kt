@@ -1,6 +1,7 @@
 package com.example.lunarphase
 
 import android.app.Activity
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,53 +11,61 @@ import kotlinx.android.synthetic.main.activity_settings.*
 class SettingsActivity : AppCompatActivity() {
 
     private var moon: Moon? = null
-    val listeners: List<Button> = listOf(sButton, nButton, trig1Button, trig2Button, conwayButton, simpleButton )
+    private var algorithmListeners: List<Button>? = null
+    private var hemisphereListeners: List<Button>? = null
+    private val CUSTOM_COLOR = Color.rgb(213, 213, 213)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        moon = intent.extras?.get(DataType.Data.toString()) as Moon?
+        moon = intent.extras?.get(Utils.Data.toString()) as Moon?
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-    }
-
-    fun buttonListener(view: View){
-        println(view.id)
-    }
-
-
-    fun southListener(view: View) {
-    }
-
-    fun northListener(view: View) {
-
-    }
-
-    fun trig1Listener(view: View) {
-
-    }
-
-    fun trig2Listener(view: View) {
-    }
-
-    fun conwayListener(view: View) {
-
-    }
-
-    fun simpleListener(view: View) {
-
-    }
-
-    fun colorAlgorithm() {
-
-    }
-
-    fun colorHemisphere() {
-
+        algorithmListeners = listOf(trig1Button, trig2Button, conwayButton, simpleButton)
+        hemisphereListeners = listOf(sButton, nButton)
+        init()
     }
 
     override fun finish() {
 //        val intent = Intent()
-        intent.putExtra(DataType.Data.toString(), moon)
+        intent.putExtra(Utils.Data.toString(), moon)
         setResult(Activity.RESULT_OK, intent)
         super.finish()
+    }
+
+    private fun init(){
+        algorithmListeners?.forEach {
+            val color = if (moon?.algorithm?.name == it.text) Color.GRAY else CUSTOM_COLOR
+            it.setBackgroundColor(color)
+        }
+        if(moon?.isNorthSide!!){
+            nButton.setBackgroundColor(Color.GRAY)
+            sButton.setBackgroundColor(CUSTOM_COLOR)
+        }else{
+            sButton.setBackgroundColor(Color.GRAY)
+            nButton.setBackgroundColor(CUSTOM_COLOR)
+        }
+    }
+
+    fun buttonAlgorithmListener(view: View){
+        val button = view as Button
+        colorButtonsList(algorithmListeners, button.id);
+        when (button.text) {
+            Algorithm.Simple.name -> moon?.algorithm = Algorithm.Simple
+            Algorithm.Conway.name -> moon?.algorithm = Algorithm.Conway
+            Algorithm.Trig1.name -> moon?.algorithm = Algorithm.Trig1
+            else -> moon?.algorithm = Algorithm.Trig2
+        }
+    }
+
+    fun buttonHemisphereListener(view: View){
+        val button = view as Button
+        colorButtonsList(hemisphereListeners, button.id)
+        moon?.isNorthSide = button.text == "North (N)"
+    }
+
+    private fun colorButtonsList(list: List<Button>?, id: Int) {
+        list?.forEach {
+            val color = if (it.id == id) Color.GRAY else CUSTOM_COLOR
+            it.setBackgroundColor(color)
+        }
     }
 }

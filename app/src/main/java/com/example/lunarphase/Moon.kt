@@ -7,7 +7,7 @@ import java.time.LocalDate
 
 class Moon : Serializable{
 
-    var site: String = "N"
+    var isNorthSide: Boolean = true
     @RequiresApi(Build.VERSION_CODES.O)
     var date: LocalDate = LocalDate.now()
     var algorithm: Algorithm = Algorithm.Simple

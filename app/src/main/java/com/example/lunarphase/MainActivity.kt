@@ -1,5 +1,6 @@
 package com.example.lunarphase
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,7 @@ import java.time.LocalDate
 class MainActivity : AppCompatActivity() {
 
     private val moon: Moon = Moon()
+    private val CODE = 1000
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +36,15 @@ class MainActivity : AppCompatActivity() {
 
 
     fun fullMoonListener(view: View){
-
+        val intent = Intent(this, FullMoonActivity::class.java)
+        intent.putExtra(Utils.Data.toString(), moon)
+        startActivityForResult(intent, CODE)
     }
 
     fun settingsListener(view: View){
-
+        val intent = Intent(this, SettingsActivity::class.java)
+        intent.putExtra(Utils.Data.toString(), moon)
+        startActivityForResult(intent, CODE)
     }
 
 }

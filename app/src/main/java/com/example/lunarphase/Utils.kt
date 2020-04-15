@@ -1,6 +1,6 @@
 package com.example.lunarphase
 
-enum class DataType {
+enum class Utils {
     Data("data");
 
     private val dataName: String
