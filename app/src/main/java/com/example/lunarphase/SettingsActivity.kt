@@ -3,7 +3,7 @@ package com.example.lunarphase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Settings : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
