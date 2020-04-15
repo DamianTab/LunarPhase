@@ -25,24 +25,9 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun finish() {
-//        val intent = Intent()
         intent.putExtra(Utils.Data.toString(), moon)
         setResult(Activity.RESULT_OK, intent)
         super.finish()
-    }
-
-    private fun init(){
-        algorithmListeners?.forEach {
-            val color = if (moon?.algorithm?.name == it.text) Color.GRAY else CUSTOM_COLOR
-            it.setBackgroundColor(color)
-        }
-        if(moon?.isNorthSide!!){
-            nButton.setBackgroundColor(Color.GRAY)
-            sButton.setBackgroundColor(CUSTOM_COLOR)
-        }else{
-            sButton.setBackgroundColor(Color.GRAY)
-            nButton.setBackgroundColor(CUSTOM_COLOR)
-        }
     }
 
     fun buttonAlgorithmListener(view: View){
@@ -60,6 +45,20 @@ class SettingsActivity : AppCompatActivity() {
         val button = view as Button
         colorButtonsList(hemisphereListeners, button.id)
         moon?.isNorthSide = button.text == "North (N)"
+    }
+
+    private fun init(){
+        algorithmListeners?.forEach {
+            val color = if (moon?.algorithm?.name == it.text) Color.GRAY else CUSTOM_COLOR
+            it.setBackgroundColor(color)
+        }
+        if(moon?.isNorthSide!!){
+            nButton.setBackgroundColor(Color.GRAY)
+            sButton.setBackgroundColor(CUSTOM_COLOR)
+        }else{
+            sButton.setBackgroundColor(Color.GRAY)
+            nButton.setBackgroundColor(CUSTOM_COLOR)
+        }
     }
 
     private fun colorButtonsList(list: List<Button>?, id: Int) {
