@@ -10,6 +10,7 @@ class Moon : Serializable{
     var isNorthSide: Boolean = true
     @RequiresApi(Build.VERSION_CODES.O)
     var date: LocalDate = LocalDate.now()
+    var phase: Double = 0.0
     var algorithm: Algorithm = Algorithm.Simple
     var photo: Int = R.drawable.n_b_0_4
 }

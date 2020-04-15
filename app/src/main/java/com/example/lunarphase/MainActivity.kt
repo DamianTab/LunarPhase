@@ -27,12 +27,25 @@ class MainActivity : AppCompatActivity() {
         loadData()
     }
 
-
     @RequiresApi(Build.VERSION_CODES.O)
-    fun updateView() {
-        var phase = 20.3
-        moon.date = LocalDate.now()
-        today.text = "Lunar phase today: $phase%"
+    fun updateView(initValue: Boolean) {
+        if (initValue) moon.date = LocalDate.now()
+
+        var result = moon.algorithm.calculate(moon.date.year, moon.date.monthValue, moon.date.dayOfMonth)
+        var phasePercent = 0.0
+        var lastNewDate = LocalDate.now()
+        var nextFullDate = LocalDate.now()
+
+        //todo dokonczyc algorytm wyboru dni
+        if (result <=15){
+            lastNewDate = moon.date.minusDays(result.toLong())
+            nextFullDate = moon.date.plusDays(result.toLong())
+
+        }else{
+            //todo dokonczyc
+        }
+
+        today.text = "Lunar phase today: ${moon.phase}%"
         lastNewMoon.text = "Last new moon was: ${moon.date}"
         nextFullMoon.text = "Next full moon will be: ${moon.date}"
         moonImage.setImageResource(moon.photo)
@@ -41,10 +54,13 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        var initValue = true
         if (requestCode == CODE && resultCode == Activity.RESULT_OK) {
             moon = data?.extras?.get(Utils.Data.toString()) as Moon
             saveData()
-        } else updateView()
+            initValue = false
+        }
+        updateView(initValue)
     }
 
     fun fullMoonListener(view: View) {
@@ -75,11 +91,12 @@ class MainActivity : AppCompatActivity() {
     private fun loadData() {
         try {
             val file = File(this.getExternalFilesDir(null), filename)
+            var initValue = true
             if (file.exists()) {
                 ObjectInputStream(FileInputStream(file)).use { moon = it.readObject() as Moon }
-            } else {
-                updateView()
+                initValue = false
             }
+            updateView(initValue)
         } catch (e: Exception) {
             e.printStackTrace()
             Toast.makeText(this, "Error occurred during loading!", Toast.LENGTH_SHORT).show()
