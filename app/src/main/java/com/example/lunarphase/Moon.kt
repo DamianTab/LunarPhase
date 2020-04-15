@@ -2,9 +2,10 @@ package com.example.lunarphase
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import java.io.Serializable
 import java.time.LocalDate
 
-class Moon {
+class Moon : Serializable{
 
     var site: String = "N"
     @RequiresApi(Build.VERSION_CODES.O)
