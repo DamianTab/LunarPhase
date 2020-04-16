@@ -2,6 +2,7 @@ package com.example.lunarphase.moon
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import kotlin.math.ceil
@@ -31,8 +32,10 @@ enum class Algorithm {
         this.function = func
     }
 
-    fun calculate(year: Int, month: Int, day: Int): Double {
-        return function(this, year, month, day)
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun calculate(date : LocalDate): Double {
+
+        return function(this, date.year, date.monthValue, date.dayOfMonth)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

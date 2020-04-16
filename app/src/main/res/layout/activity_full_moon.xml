@@ -7,7 +7,7 @@
     tools:context=".WholeYear">
 
     <TextView
-        android:id="@+id/dateview12"
+        android:id="@+id/cell11"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -15,11 +15,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview11"
+        app:layout_constraintTop_toBottomOf="@+id/cell10"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview9"
+        android:id="@+id/cell8"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -27,11 +27,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview8"
+        app:layout_constraintTop_toBottomOf="@+id/cell7"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview10"
+        android:id="@+id/cell9"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -39,11 +39,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview9"
+        app:layout_constraintTop_toBottomOf="@+id/cell8"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview11"
+        android:id="@+id/cell10"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -51,11 +51,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview10"
+        app:layout_constraintTop_toBottomOf="@+id/cell9"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview8"
+        android:id="@+id/cell7"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -63,11 +63,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview7"
+        app:layout_constraintTop_toBottomOf="@+id/cell6"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview7"
+        android:id="@+id/cell6"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -75,11 +75,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview6"
+        app:layout_constraintTop_toBottomOf="@+id/cell5"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview6"
+        android:id="@+id/cell5"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -87,11 +87,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview5"
+        app:layout_constraintTop_toBottomOf="@+id/cell4"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview5"
+        android:id="@+id/cell4"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -99,11 +99,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview4"
+        app:layout_constraintTop_toBottomOf="@+id/cell3"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview4"
+        android:id="@+id/cell3"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -111,11 +111,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview3"
+        app:layout_constraintTop_toBottomOf="@+id/cell2"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview3"
+        android:id="@+id/cell2"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -123,11 +123,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview2"
+        app:layout_constraintTop_toBottomOf="@+id/cell1"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/dateview2"
+        android:id="@+id/cell1"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -135,7 +135,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateview"
+        app:layout_constraintTop_toBottomOf="@+id/cell"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -155,18 +155,17 @@
         android:layout_width="111dp"
         android:layout_height="68dp"
         android:layout_marginTop="12dp"
-        android:onClick="findAllFullMoon"
+        android:onClick="fullMoonsInYear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.643"
-        app:layout_constraintStart_toEndOf="@+id/yearNumber"
+        app:layout_constraintStart_toEndOf="@+id/yearInput"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.035"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        android:contentDescription="TODO" />
+        app:srcCompat="@android:drawable/ic_menu_search" />
 
     <EditText
-        android:id="@+id/yearNumber"
+        android:id="@+id/yearInput"
         android:layout_width="181dp"
         android:layout_height="68dp"
         android:layout_marginTop="12dp"
@@ -191,14 +190,14 @@
         android:text="Year"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/yearNumber"
+        app:layout_constraintEnd_toStartOf="@+id/yearInput"
         app:layout_constraintHorizontal_bias="0.706"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.006" />
 
     <TextView
-        android:id="@+id/dateview"
+        android:id="@+id/cell"
         android:layout_width="408dp"
         android:layout_height="40dp"
         android:textSize="18sp"
@@ -206,7 +205,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yearNumber"
+        app:layout_constraintTop_toBottomOf="@+id/yearInput"
         app:layout_constraintVertical_bias="0.032" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

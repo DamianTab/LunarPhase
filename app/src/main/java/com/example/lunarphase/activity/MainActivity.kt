@@ -89,14 +89,14 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun updateView() {
         val result =
-            moonSettings.algorithm.calculate(date.year, date.monthValue, date.dayOfMonth)
+            moonSettings.algorithm.calculate(date)
         println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@   WYNIK ALGORYTMU TO: $result")
         val phasePercent = round(result / 29 * 10000) / 100
         val lastNewDate: LocalDate = date.minusDays(result.toLong())
         val nextFullDate = if (result <= 15) {
             date.plusDays(15 - result.toLong())
         } else {
-            date.plusDays(29 - result.toLong() + 15)
+            date.plusDays(30 - result.toLong() + 15)
         }
 
         today.text = "Lunar phase today: $phasePercent%"

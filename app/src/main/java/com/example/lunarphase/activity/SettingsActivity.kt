@@ -20,9 +20,9 @@ class SettingsActivity : AppCompatActivity() {
     private val CUSTOM_COLOR = Color.rgb(213, 213, 213)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        moonSettings = intent.extras?.get(Utils.Data.toString()) as MoonSettings?
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+        moonSettings = intent.extras?.get(Utils.Data.toString()) as MoonSettings?
         algorithmListeners = listOf(trig1Button, trig2Button, conwayButton, simpleButton)
         hemisphereListeners = listOf(sButton, nButton)
         init()
