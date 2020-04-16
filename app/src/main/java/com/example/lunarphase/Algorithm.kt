@@ -35,7 +35,18 @@ enum class Algorithm {
     }
 
     private fun conway(year: Int, month: Int, day: Int): Double {
-        return 0.0
+        var r = year % 100.0
+        r %= 19
+        if (r > 9) {
+            r -= 19
+        }
+        r = ((r * 11) % 30) + month + day
+        if (month < 3) {
+            r += 2
+        }
+        r -= if (year < 2000) 4.0 else 8.3
+        r = kotlin.math.floor(r + 0.5) % 30
+        return if (r < 0) r + 30 else r
     }
 
     private fun trig1(year: Int, month: Int, day: Int): Double {
