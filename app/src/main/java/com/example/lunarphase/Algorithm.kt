@@ -26,9 +26,9 @@ enum class Algorithm {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun simple(year: Int, month: Int, day: Int): Double {
         val lp = 2551443
-        val now = LocalDateTime.of(year, month-1, day, 20, 35, 0).atZone(ZoneOffset.UTC).toInstant()
+        val now = LocalDateTime.of(year, month, day, 20, 35, 0).atZone(ZoneOffset.UTC).toInstant()
             .toEpochMilli()
-        val newMoon = LocalDateTime.of(1970, 0, 7, 20, 35, 0).atZone(ZoneOffset.UTC).toInstant()
+        val newMoon = LocalDateTime.of(1970, 1, 7, 20, 35, 0).atZone(ZoneOffset.UTC).toInstant()
             .toEpochMilli()
         val phase = ((now - newMoon) / 1000) % lp
         return kotlin.math.floor(phase / (24 * 3600).toDouble()) + 1

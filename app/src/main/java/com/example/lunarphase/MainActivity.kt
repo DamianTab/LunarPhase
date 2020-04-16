@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.time.LocalDate
+import kotlin.math.round
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private val CODE = 1000
     private val filename = "MoonData.txt";
 
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,29 +27,6 @@ class MainActivity : AppCompatActivity() {
         loadData()
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun updateView(initValue: Boolean) {
-        if (initValue) moon.date = LocalDate.now()
-
-        var result = moon.algorithm.calculate(moon.date.year, moon.date.monthValue, moon.date.dayOfMonth)
-        var phasePercent = 0.0
-        var lastNewDate = LocalDate.now()
-        var nextFullDate = LocalDate.now()
-
-        //todo dokonczyc algorytm wyboru dni
-        if (result <=15){
-            lastNewDate = moon.date.minusDays(result.toLong())
-            nextFullDate = moon.date.plusDays(result.toLong())
-
-        }else{
-            //todo dokonczyc
-        }
-
-        today.text = "Lunar phase today: ${moon.phase}%"
-        lastNewMoon.text = "Last new moon was: ${moon.date}"
-        nextFullMoon.text = "Next full moon will be: ${moon.date}"
-        moonImage.setImageResource(moon.photo)
-    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -101,6 +78,27 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
             Toast.makeText(this, "Error occurred during loading!", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun updateView(initValue: Boolean) {
+        if (initValue) moon.date = LocalDate.now()
+
+        val result =
+            moon.algorithm.calculate(moon.date.year, moon.date.monthValue, moon.date.dayOfMonth)
+        println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@   WYNIK ALGORYTMU TO: $result")
+        val phasePercent = round(result / 29 * 10000) / 100
+        val lastNewDate: LocalDate = moon.date.minusDays(result.toLong())
+        val nextFullDate = if (result <= 15) {
+            moon.date.plusDays(15 - result.toLong())
+        } else {
+            moon.date.plusDays(29 - result.toLong() + 15)
+        }
+
+        today.text = "Lunar phase today: $phasePercent%"
+        lastNewMoon.text = "Last new moon was: $lastNewDate"
+        nextFullMoon.text = "Next full moon will be: $nextFullDate"
+        moonImage.setImageResource(moon.receivePhotoId(result))
     }
 
 }
