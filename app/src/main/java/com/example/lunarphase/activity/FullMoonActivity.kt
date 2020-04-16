@@ -1,7 +1,8 @@
-package com.example.lunarphase
+package com.example.lunarphase.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.lunarphase.R
 
 class FullMoonActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.example.lunarphase
+package com.example.lunarphase.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -8,6 +8,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lunarphase.*
+import com.example.lunarphase.moon.MoonSettings
+import com.example.lunarphase.moon.PhotoManager
+import com.example.lunarphase.utils.Utils
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.time.LocalDate
@@ -22,7 +26,8 @@ class MainActivity : AppCompatActivity() {
     private val filename = "MoonData.txt"
     private val photoManager = PhotoManager()
 
-    private var moonSettings: MoonSettings = MoonSettings()
+    private var moonSettings: MoonSettings =
+        MoonSettings()
 
 
     @RequiresApi(Build.VERSION_CODES.O)

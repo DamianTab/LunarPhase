@@ -1,5 +1,6 @@
-package com.example.lunarphase
+package com.example.lunarphase.moon
 
+import com.example.lunarphase.R
 import kotlin.math.round
 
 class PhotoManager {

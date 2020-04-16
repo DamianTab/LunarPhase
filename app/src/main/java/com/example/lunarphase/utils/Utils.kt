@@ -1,4 +1,4 @@
-package com.example.lunarphase
+package com.example.lunarphase.utils
 
 enum class Utils {
     Data("data");

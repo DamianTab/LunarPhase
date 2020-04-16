@@ -1,4 +1,4 @@
-package com.example.lunarphase
+package com.example.lunarphase.activity
 
 import android.app.Activity
 import android.graphics.Color
@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lunarphase.moon.Algorithm
+import com.example.lunarphase.moon.MoonSettings
+import com.example.lunarphase.R
+import com.example.lunarphase.utils.Utils
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
@@ -34,10 +38,14 @@ class SettingsActivity : AppCompatActivity() {
         val button = view as Button
         colorButtonsList(algorithmListeners, button.id);
         when (button.text) {
-            Algorithm.Simple.name -> moonSettings?.algorithm = Algorithm.Simple
-            Algorithm.Conway.name -> moonSettings?.algorithm = Algorithm.Conway
-            Algorithm.Trig1.name -> moonSettings?.algorithm = Algorithm.Trig1
-            else -> moonSettings?.algorithm = Algorithm.Trig2
+            Algorithm.Simple.name -> moonSettings?.algorithm =
+                Algorithm.Simple
+            Algorithm.Conway.name -> moonSettings?.algorithm =
+                Algorithm.Conway
+            Algorithm.Trig1.name -> moonSettings?.algorithm =
+                Algorithm.Trig1
+            else -> moonSettings?.algorithm =
+                Algorithm.Trig2
         }
     }
 

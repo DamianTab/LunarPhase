@@ -1,8 +1,7 @@
-package com.example.lunarphase
+package com.example.lunarphase.moon
 
+import com.example.lunarphase.moon.Algorithm
 import java.io.Serializable
-import kotlin.math.round
-import com.example.lunarphase.R.drawable as d
 
 
 class MoonSettings : Serializable {

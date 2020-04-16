@@ -1,4 +1,4 @@
-package com.example.lunarphase
+package com.example.lunarphase.moon
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -17,7 +17,9 @@ import kotlin.reflect.KFunction4
  */
 
 enum class Algorithm {
-    Simple(Algorithm::simple), Conway(Algorithm::conway), Trig1(Algorithm::trig1), Trig2(Algorithm::trig2);
+    Simple(Algorithm::simple), Conway(
+        Algorithm::conway), Trig1(Algorithm::trig1), Trig2(
+        Algorithm::trig2);
 
     private val function: KFunction4<Algorithm, Int, Int, Int, Double>
 
