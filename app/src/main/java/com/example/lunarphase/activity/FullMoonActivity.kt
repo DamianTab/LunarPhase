@@ -62,19 +62,25 @@ class FullMoonActivity : AppCompatActivity() {
         } else {
             yearInput.setTextColor(Color.BLACK)
             val date = LocalDate.of(year, 1, 1)
-            val phaseDate = round(moonSettings!!.algorithm.calculate(date))
-            var fullMoonDate = if (phaseDate <= 15) {
-                date.plusDays(15 - phaseDate.toLong())
-            } else {
-                date.plusDays(30 - phaseDate.toLong() + 15)
-            }
+            var fullMoonDate = findFullMoon(date)
 
             cellList!!.stream()
                 .takeUnless { fullMoonDate.year != year }
                 ?.forEach {
                     it.text = fullMoonDate.toString()
-                    fullMoonDate = fullMoonDate.plusDays(30)
+                    fullMoonDate = fullMoonDate.plusDays(2)
+                    fullMoonDate = findFullMoon(fullMoonDate)
                 }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun findFullMoon(date: LocalDate): LocalDate {
+        val phaseDay = moonSettings!!.algorithm.calculate(date)
+        return if (phaseDay <= 15) {
+            date.plusDays(15 - phaseDay.toLong())
+        } else {
+            date.plusDays(30 - phaseDay.toLong() + 15)
         }
     }
 }
