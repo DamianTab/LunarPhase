@@ -133,7 +133,7 @@ enum class Algorithm {
         return jul;
     }
 
-    fun getFrac(fr: Double): Double {
+    private fun getFrac(fr: Double): Double {
         return (fr - floor(fr));
     }
 }

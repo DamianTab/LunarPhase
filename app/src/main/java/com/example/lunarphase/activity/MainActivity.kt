@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun updateView() {
         val result =
-            moonSettings.algorithm.calculate(date)
+            round(moonSettings.algorithm.calculate(date))
         println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@   WYNIK ALGORYTMU TO: $result")
         val phasePercent = round(result / 29 * 10000) / 100
         val lastNewDate: LocalDate = date.minusDays(result.toLong())
