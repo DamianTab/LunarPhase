@@ -43,6 +43,7 @@ class FullMoonActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun fullMoonsInYear(view: View) {
+        if (yearInput.text.toString() == "") return
         val year = yearInput.text.toString().toInt()
         if (year > 2200 || year < 1900) {
             yearInput.setTextColor(Color.RED)
