@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lunarphase.R
 import com.example.lunarphase.moon.Algorithm
 import com.example.lunarphase.moon.MoonSettings
-import com.example.lunarphase.R
 import com.example.lunarphase.utils.Utils
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -34,7 +34,7 @@ class SettingsActivity : AppCompatActivity() {
         super.finish()
     }
 
-    fun buttonAlgorithmListener(view: View){
+    fun buttonAlgorithmListener(view: View) {
         val button = view as Button
         colorButtonsList(algorithmListeners, button.id);
         when (button.text) {
@@ -49,21 +49,21 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    fun buttonHemisphereListener(view: View){
+    fun buttonHemisphereListener(view: View) {
         val button = view as Button
         colorButtonsList(hemisphereListeners, button.id)
         moonSettings?.isNorthSide = button.text == "North (N)"
     }
 
-    private fun init(){
+    private fun init() {
         algorithmListeners?.forEach {
             val color = if (moonSettings?.algorithm?.name == it.text) Color.GRAY else CUSTOM_COLOR
             it.setBackgroundColor(color)
         }
-        if(moonSettings?.isNorthSide!!){
+        if (moonSettings?.isNorthSide!!) {
             nButton.setBackgroundColor(Color.GRAY)
             sButton.setBackgroundColor(CUSTOM_COLOR)
-        }else{
+        } else {
             sButton.setBackgroundColor(Color.GRAY)
             nButton.setBackgroundColor(CUSTOM_COLOR)
         }

@@ -19,8 +19,11 @@ import kotlin.reflect.KFunction4
 
 enum class Algorithm {
     Simple(Algorithm::simple), Conway(
-        Algorithm::conway), Trig1(Algorithm::trig1), Trig2(
-        Algorithm::trig2);
+        Algorithm::conway
+    ),
+    Trig1(Algorithm::trig1), Trig2(
+        Algorithm::trig2
+    );
 
     private val function: KFunction4<Algorithm, Int, Int, Int, Double>
 
@@ -33,7 +36,7 @@ enum class Algorithm {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun calculate(date : LocalDate): Double {
+    fun calculate(date: LocalDate): Double {
 
         return function(this, date.year, date.monthValue, date.dayOfMonth)
     }
@@ -74,10 +77,12 @@ enum class Algorithm {
         val J0 = 2415020 + 29 * K0
         val F0 =
             0.0001178 * T2 - 0.000000155 * T3 + (0.75933 + 0.53058868 * K0) - (0.000837 * T + 0.000335 * T2)
-        val M0 = 360 * (getFrac(K0 * 0.08084821133)) + 359.2242 - 0.0000333 * T2 - 0.00000347 * T3
-        val M1 = 360 * (getFrac(K0 * 0.07171366128)) + 306.0253 + 0.0107306 * T2 + 0.00001236 * T3
+        val M0 =
+            360 * (getFraction(K0 * 0.08084821133)) + 359.2242 - 0.0000333 * T2 - 0.00000347 * T3
+        val M1 =
+            360 * (getFraction(K0 * 0.07171366128)) + 306.0253 + 0.0107306 * T2 + 0.00001236 * T3
         val B1 =
-            360 * (getFrac(K0 * 0.08519585128)) + 21.2964 - (0.0016528 * T2) - (0.00000239 * T3)
+            360 * (getFraction(K0 * 0.08519585128)) + 21.2964 - (0.0016528 * T2) - (0.00000239 * T3)
         var phase = 0.0
         var jday = 0.0
         var oldJ = 0.0
@@ -133,7 +138,7 @@ enum class Algorithm {
         return jul;
     }
 
-    private fun getFrac(fr: Double): Double {
+    private fun getFraction(fr: Double): Double {
         return (fr - floor(fr));
     }
 }

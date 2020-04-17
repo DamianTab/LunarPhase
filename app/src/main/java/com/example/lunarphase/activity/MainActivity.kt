@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lunarphase.*
+import com.example.lunarphase.R
 import com.example.lunarphase.moon.MoonSettings
 import com.example.lunarphase.moon.PhotoManager
 import com.example.lunarphase.utils.Utils
@@ -78,7 +78,9 @@ class MainActivity : AppCompatActivity() {
         try {
             val file = File(this.getExternalFilesDir(null), filename)
             if (file.exists()) {
-                ObjectInputStream(FileInputStream(file)).use { moonSettings = it.readObject() as MoonSettings }
+                ObjectInputStream(FileInputStream(file)).use {
+                    moonSettings = it.readObject() as MoonSettings
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()

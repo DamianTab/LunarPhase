@@ -1,6 +1,5 @@
 package com.example.lunarphase.moon
 
-import com.example.lunarphase.moon.Algorithm
 import java.io.Serializable
 
 
